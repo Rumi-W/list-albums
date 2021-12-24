@@ -1,0 +1,103 @@
+{
+  //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "editor.minimap.enabled": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  // turn if off for JS (Important)
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "onFocusChange",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "javascript.validate.enable": false,
+  "javascript.suggestionActions.enabled": false,
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "css.validate": false,
+  // "workbench.colorCustomizations": {
+  //   "terminal.background": "#FFFFFF",
+  //   "terminal.foreground": "#101010",
+  //   "terminalCursor.background": "#101010",
+  //   "terminalCursor.foreground": "#101010",
+  //   "terminal.ansiBlack": "#FFFFFF",
+  //   "terminal.ansiBlue": "#3777E6",
+  //   "terminal.ansiBrightBlack": "#B0B0B0",
+  //   "terminal.ansiBrightBlue": "#3777E6",
+  //   "terminal.ansiBrightCyan": "#1FAAAA",
+  //   "terminal.ansiBrightGreen": "#00C918",
+  //   "terminal.ansiBrightMagenta": "#AD00A1",
+  //   "terminal.ansiBrightRed": "#FF0086",
+  //   "terminal.ansiBrightWhite": "#202020",
+  //   "terminal.ansiBrightYellow": "#ABA800",
+  //   "terminal.ansiCyan": "#1FAAAA",
+  //   "terminal.ansiGreen": "#00C918",
+  //   "terminal.ansiMagenta": "#AD00A1",
+  //   "terminal.ansiRed": "#FF0086",
+  //   "terminal.ansiWhite": "#101010",
+  //   "terminal.ansiYellow": "#ABA800"
+  // },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "window.zoomLevel": 0,
+  "http.proxyAuthorization": null,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "eslint.validate": ["javascript"],
+  "eslint.workingDirectories": [],
+  "workbench.editorAssociations": {},
+  "json.maxItemsComputed": 500000,
+  "html.suggest.html5": true,
+  "settingsSync.ignoredExtensions": [],
+  "editor.quickSuggestions": { "other": false, "comments": false, "strings": false },
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.wordBasedSuggestions": false,
+  "workbench.colorCustomizations": {
+    // "editor.background":"#252523",
+    "terminal.background": "#20201D",
+    "terminal.foreground": "#A6A28C",
+    "terminalCursor.background": "#A6A28C",
+    "terminalCursor.foreground": "#A6A28C",
+    "terminal.ansiBlack": "#20201D",
+    "terminal.ansiBlue": "#6684E1",
+    "terminal.ansiBrightBlack": "#7D7A68",
+    "terminal.ansiBrightBlue": "#6684E1",
+    "terminal.ansiBrightCyan": "#1FAD83",
+    "terminal.ansiBrightGreen": "#60AC39",
+    "terminal.ansiBrightMagenta": "#B854D4",
+    "terminal.ansiBrightRed": "#D73737",
+    "terminal.ansiBrightWhite": "#FEFBEC",
+    "terminal.ansiBrightYellow": "#AE9513",
+    "terminal.ansiCyan": "#1FAD83",
+    "terminal.ansiGreen": "#60AC39",
+    "terminal.ansiMagenta": "#B854D4",
+    "terminal.ansiRed": "#D73737",
+    "terminal.ansiWhite": "#A6A28C",
+    "terminal.ansiYellow": "#AE9513"
+  },
+  //"html.format.contentUnformatted": "",
+  "terminal.integrated.profiles.windows": {
+    // "PowerShell": {
+    //   "source": "PowerShell",
+    //   "icon": "terminal-powershell"
+    // },
+    // "Command Prompt": {
+    //   "path": [
+    //     "${env:windir}\\Sysnative\\cmd.exe",
+    //     "${env:windir}\\System32\\cmd.exe"
+    //   ],
+    //   "args": [],
+    //   "icon": "terminal-cmd"
+    // },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "editor.fontSize": 12,
+  "editor.fontWeight": "normal",
+  "workbench.colorTheme": "Visual Studio Dark"
+}

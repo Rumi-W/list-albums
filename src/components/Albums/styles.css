@@ -1,0 +1,69 @@
+
+.page-top-link {
+    padding: 10px 40px;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+}
+
+.albums-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    padding: 20px 20px;
+  
+}
+
+.album-cards-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.albums-list {
+    width: 40vw;
+    height: 75vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1px #e5e5e5 solid;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+
+
+@media screen and (max-width: 1279px){
+    .albums-wrap {
+        padding: 10px;
+       
+    }
+    .albums-list {
+        width: 60vw;
+    }
+}
+
+/* md */
+@media screen and (max-width: 959px){
+    .albums-list {
+        width: 80vw;
+    }
+}
+
+/* xs and sm */
+@media screen and (max-width: 599px){
+    .albums-wrap {
+        padding: 5px;
+       
+    }
+    .albums-list {
+        width: 100vw;
+    }
+}

@@ -1,0 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
+
+.to-do .layout .contents{
+  background-color: #edf5fd;
+  border: 1px solid #b1d5f8;
+  border-radius: 10px;      
+}
+
+.to-do .title-wrap{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: 'row';
+    justify-content: center;
+}
+
+.to-do .react-grid-item {
+    width: 100%;
+    background-color: #fff;
+    border: 1px #ddd solid;
+    font-size: 24px;
+}
+
+.to-do .textField {
+    font-family: 'Fuzzy Bubbles', cursive;
+}
