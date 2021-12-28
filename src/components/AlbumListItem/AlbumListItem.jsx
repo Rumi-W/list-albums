@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -30,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 'none',
         borderRadius: 0,
         '&:hover': {
-            backgroundColor: '#f2f2f2'
+            backgroundColor: 'rgba(230, 246, 247, 0.7)'
         },
-        '&:focus, &:active': {
+        '&:focus, &:active, &.active': {
             boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-            backgroundColor: '#e2e2e2',
+            backgroundColor: 'rgb(230, 246, 247)',
             webkitTransform: 'scale(0.99)',
             mozTtransform: 'scale(0.99)',
             oTransform: 'scale(0.99)',
@@ -92,12 +93,22 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const AlbumListItem = ({ item, maxImgHeight, toggleFavorite, addFavoriteAlbum, removeFavoriteAlbum }) => {
+const AlbumListItem = ({
+    item,
+    selected,
+    maxImgHeight,
+    showAlbumInfo,
+    toggleFavorite,
+    addFavoriteAlbum,
+    removeFavoriteAlbum
+}) => {
     const classes = useStyles()
     const [openModal, setOpenModal] = useState(false)
+    const isScreenLgUp = useMediaQuery({ query: '(min-width: 1280px)' })
 
-    const handleClickFavorite = useCallback(() => {
+    const handleClickFavorite2 = useCallback(() => {
         if (item.id === '') return
+
         if (item.selected) {
             removeFavoriteAlbum(item.id)
         } else {
@@ -108,14 +119,38 @@ const AlbumListItem = ({ item, maxImgHeight, toggleFavorite, addFavoriteAlbum, r
         toggleFavorite(item.id)
     }, [removeFavoriteAlbum, addFavoriteAlbum, toggleFavorite, item])
 
-    const toggleModal = () => {
-        setOpenModal((prev) => !prev)
+    const handleClickFavorite = () => {
+        if (item.id === '') return
+
+        if (item.selected) {
+            removeFavoriteAlbum(item.id)
+        } else {
+            const itemCopy = { ...item }
+            itemCopy.selected = true
+            addFavoriteAlbum(itemCopy)
+        }
+        toggleFavorite(item.id)
     }
 
-    console.log('*** render album list item')
+    const handleCardClick = () => {
+        if (!isScreenLgUp) {
+            setOpenModal((prev) => !prev)
+        } else {
+            showAlbumInfo(item)
+        }
+    }
+
+    const closeModal = () => {
+        setOpenModal(false)
+    }
+
+    // console.log('*** render album list item')
     return (
         <div className={classes.listItemWrap}>
-            <Card className={classes.root} onClick={toggleModal}>
+            <Card
+                className={classes.root}
+                onClick={handleCardClick}
+                style={{ backgroundColor: selected ? 'rgb(230, 246, 247)' : 'none' }}>
                 <Grid container className={classes.contentWrap}>
                     <Grid item xs={10} sm={9} className={classes.contentWrapInner}>
                         <CardMedia
@@ -136,14 +171,8 @@ const AlbumListItem = ({ item, maxImgHeight, toggleFavorite, addFavoriteAlbum, r
 
                     <Grid item xs={2} sm={3}>
                         <CardActions className={classes.action}>
-                            <a
-                                href={item.link}
-                                className={classes.link}
-                                target="_blank"
-                                size="small"
-                                color="primary"
-                                rel="noreferrer">
-                                <Typography variant="caption">Go to Music </Typography>
+                            <a href={item.link} className={classes.link} target="_blank" rel="noreferrer">
+                                Go to Music
                             </a>
                             <IconButton className={classes.icon} onClick={handleClickFavorite}>
                                 {item.selected ? (
@@ -167,7 +196,7 @@ const AlbumListItem = ({ item, maxImgHeight, toggleFavorite, addFavoriteAlbum, r
                     titleFull={item.titleFull}
                     price={item.price}
                     releaseDate={item.releaseDate}
-                    toggleModal={toggleModal}
+                    closeModal={closeModal}
                     handleClickFavorite={handleClickFavorite}
                 />
             )}

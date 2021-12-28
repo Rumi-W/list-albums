@@ -1,9 +1,6 @@
 import React, { useRef, useEffect, useState, memo } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core'
-// import IconButton from '@material-ui/core/IconButton'
-// import HeartIcon from '@material-ui/icons/FavoriteBorder'
-// import HeartIconFilled from '@material-ui/icons/Favorite'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -51,8 +48,6 @@ const useStyles = makeStyles((theme) => ({
         textOverflow: 'ellipsis',
         [theme.breakpoints.only('xs')]: {
             display: 'none'
-            // padding: 0,
-            // width: '100%'
         }
     },
     iconFavorite: {
@@ -81,29 +76,15 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         [theme.breakpoints.only('xs')]: {
             display: 'none'
-            // padding: 0
         }
     }
 }))
 
-const Album = ({ item, height, beakpoint, toggleFavorite, addFavoriteAlbum, removeFavoriteAlbum }) => {
+const Album = ({ item, height, breakpoint }) => {
     const ref = useRef(null)
     const [contentHeight, setContentHeight] = useState(height)
     const [contentWidth, setContentWidth] = useState(null)
     const classes = useStyles()
-
-    const handleClickFavorite = () => {
-        console.log('clicked')
-        if (item.id === '') return
-        if (item.selected) {
-            removeFavoriteAlbum(item.id)
-        } else {
-            const itemCopy = { ...item }
-            itemCopy.selected = true
-            addFavoriteAlbum(itemCopy)
-        }
-        toggleFavorite(item.id)
-    }
 
     useEffect(() => {
         if (ref && ref.current) {
@@ -117,9 +98,9 @@ const Album = ({ item, height, beakpoint, toggleFavorite, addFavoriteAlbum, remo
             ref.current.focus()
             setContentWidth(ref.current.parentNode.clientWidth)
         }
-    }, [beakpoint])
+    }, [breakpoint])
 
-    console.log('*** render CARD', item.id)
+    // console.log('*** render CARD')
     return (
         <div ref={ref} className={classes.root} style={{ height: contentHeight || 'auto', width: 'auto' }}>
             <div
@@ -130,29 +111,23 @@ const Album = ({ item, height, beakpoint, toggleFavorite, addFavoriteAlbum, remo
                         <img className={classes.image} alt="cover" src={item.image} />
                     </div>
                     <div className={classes.content}>
-                        <Typography className={classes.albumTitle} variant="caption" component="div">
-                            {item.artist}
+                        <Typography className={classes.albumTitle} variant="body2" component="div">
+                            {item.artistFull}
                         </Typography>
-                        <Typography variant="caption" component="div">
-                            {item.title}
+                        <Typography variant="body2" component="div">
+                            {item.titleFull}
                         </Typography>
                     </div>
-
-                    {
-                        // <IconButton className={classes.iconFavorite} onClick={handleClickFavorite}>
-                        //     {item.selected ? <HeartIconFilled className={classes.heartIconFilled} /> : <HeartIcon />}
-                        // </IconButton>
-                    }
                 </div>
                 <div className={classes.actionWrap}>
-                    <Typography variant="caption" component="div">
+                    <Typography variant="body2" component="div">
                         Price: {item.price}
                     </Typography>
-                    <Typography variant="caption" component="div">
+                    <Typography variant="body2" component="div">
                         Release: {item.releaseDate}
                     </Typography>
                     <a href={item.link} target="_blank" size="small" color="primary" rel="noreferrer">
-                        <Typography variant="caption">Go to Music </Typography>
+                        <Typography variant="body2">Go to Music </Typography>
                     </a>
                 </div>
             </div>
@@ -160,21 +135,11 @@ const Album = ({ item, height, beakpoint, toggleFavorite, addFavoriteAlbum, remo
     )
 }
 
-const propEqual = (prevProps, nextProps) => {
-    //console.log('SAME', prevProps.item === nextProps.item)
-    return (
-        prevProps.item === nextProps.item
-        //  &&
-        // prevProps.id === nextProps.id &&
-        // prevProps.image === nextProps.image &&
-        // prevProps.artist === nextProps.artist &&
-        // prevProps.title === nextProps.title &&
-        // prevProps.link === nextProps.link &&
-        // prevProps.selected === nextProps.selected
-    )
-}
+const propEqual = (prevProps, nextProps) =>
+    prevProps.item === nextProps.item &&
+    prevProps.height === nextProps.height &&
+    prevProps.breakpoint === nextProps.breakpoint
 
 const memorizedAlbum = memo(Album, propEqual)
 
-//export default memorizedAlbum
-export default Album
+export default memorizedAlbum

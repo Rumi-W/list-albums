@@ -1,12 +1,25 @@
 import { connect } from 'react-redux'
-import { albumItems, fetchAlbums } from '../../store/albums'
+import { albumItems, fetchAlbums, filterAlbums, isAlbumsPending, isAlbumsSuccess } from '../../store/albums'
 
 import Albums from './Albums'
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
     return {
-        albumItems: albumItems(state)
+        albumItems: albumItems(state),
+        isAlbumsPending: isAlbumsPending(state),
+        isAlbumsSuccess: isAlbumsSuccess(state)
     }
 }
 
-export default connect(mapStateToProps, { fetchAlbums })(Albums)
+// const makeMapStateToProps = () => {
+//     const getFilteredAlbums = makeFilteredAlbums()
+//     const mapStateToProps = (state, props) => {
+//         return {
+//             albumItems: albumItems(state),
+//             filteredAlbums: getFilteredAlbums(state, props)
+//         }
+//     }
+//     return mapStateToProps
+//}
+
+export default connect(mapStateToProps, { fetchAlbums, filterAlbums })(Albums)

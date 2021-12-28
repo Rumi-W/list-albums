@@ -20,7 +20,6 @@ const ToDoList = ({ toDoList, fetchToDoList, updateTask, deleteTask }) => {
     }, [])
 
     const makeLayout = useCallback(() => {
-        console.log('****set layout')
         const colNum = 3
         const width = 1
 
@@ -40,13 +39,11 @@ const ToDoList = ({ toDoList, fetchToDoList, updateTask, deleteTask }) => {
     }, [toDoList])
 
     useEffect(() => {
-        console.log('onload')
         setWindowWidth(getWindowWidth())
     }, [getWindowWidth])
 
     useEffect(() => {
         if (!toDoList || !toDoList.length) {
-            console.log('fetching')
             fetchToDoList()
         }
     }, [fetchToDoList, toDoList])
@@ -73,19 +70,18 @@ const ToDoList = ({ toDoList, fetchToDoList, updateTask, deleteTask }) => {
 
     const updateSelected = useCallback(
         (id, title) => {
-            console.log('update')
             updateTask(id, title)
         },
         [updateTask]
     )
 
     const handleBreakpointChange = (breakpoint) => {
-        console.log(breakpoint)
+        // console.log(breakpoint)
     }
 
     if (!toDoList.length || !layout || !layout.length) return <div>No items</div>
 
-    console.log('*** render list')
+    // console.log('*** render list')
 
     return (
         <div className="to-do">

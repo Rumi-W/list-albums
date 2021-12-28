@@ -11,6 +11,10 @@ const theme = createTheme({
             main: '#0084b4',
             dark: '#005784',
             light: '#56b4e6'
+        },
+        text: {
+            //secondary: '#00b7eb'
+            secondary: '#008fb8'
         }
     },
     overrides: {

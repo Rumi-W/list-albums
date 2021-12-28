@@ -18,7 +18,7 @@ const composeEnhancers =
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
 const app = (
     <ThemeProvider theme={theme}>
-        <BrowserRouter basename="/dashboard/">
+        <BrowserRouter basename="/list-albums/">
             <Provider store={store}>
                 <App />
             </Provider>

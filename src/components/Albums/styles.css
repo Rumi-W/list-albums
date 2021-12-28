@@ -1,6 +1,14 @@
-
 .page-top-link {
-    padding: 10px 40px;
+    padding: 10px 80px;
+    font-size: 1rem;
+}
+
+.link {
+    color: rgb(216, 155, 24);
+}
+
+.link:hover {
+    color: rgb(241, 140, 8);
 }
 
 .page-title {
@@ -14,7 +22,6 @@
     justify-content: center;
     height: 100%;
     padding: 20px 20px;
-  
 }
 
 .album-cards-wrap {
@@ -29,21 +36,40 @@
 }
 
 .albums-list {
-    width: 40vw;
     height: 75vh;
     overflow-y: hidden;
     overflow-x: hidden;
     border: 1px #e5e5e5 solid;
     border-radius: 2px;
-    box-shadow: 5px 5px 5px gray;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.album-info {
+    height: 75vh;
+    margin-left: 1rem !important;
+    border: 1px #e5e5e5 solid;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
+.album-info-content {
+    margin-top: 1rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-@media screen and (max-width: 1279px){
+.album-link {
+    margin-top: 1rem;
+}
+
+.album @media screen and (max-width: 1279px) {
     .albums-wrap {
         padding: 10px;
-       
     }
     .albums-list {
         width: 60vw;
@@ -51,19 +77,21 @@
 }
 
 /* md */
-@media screen and (max-width: 959px){
+@media screen and (max-width: 959px) {
     .albums-list {
         width: 80vw;
     }
 }
 
 /* xs and sm */
-@media screen and (max-width: 599px){
+@media screen and (max-width: 599px) {
     .albums-wrap {
         padding: 5px;
-       
     }
     .albums-list {
         width: 100vw;
+    }
+    .page-top-link {
+        padding: 10px 20px;
     }
 }

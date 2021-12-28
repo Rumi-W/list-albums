@@ -72,7 +72,7 @@ const Transition = React.forwardRef((props, ref) => {
     return <Slide direction="up" ref={ref} {...props} />
 })
 
-const ModalDialog = ({ open, toggleModal, children }) => {
+const ModalDialog = ({ open, closeModal, children }) => {
     const theme = useTheme()
     const fullScreen = useMediaQuery(theme.breakpoints.only('xs'))
 
@@ -81,7 +81,7 @@ const ModalDialog = ({ open, toggleModal, children }) => {
             <CustomModalDialog fullScreen={fullScreen} open={open} TransitionComponent={Transition} maxWidth="lg">
                 <DialogContent dividers>{children}</DialogContent>
                 <DialogActions>
-                    <Button onClick={toggleModal} color="primary">
+                    <Button onClick={closeModal} color="primary">
                         Close
                     </Button>
                 </DialogActions>

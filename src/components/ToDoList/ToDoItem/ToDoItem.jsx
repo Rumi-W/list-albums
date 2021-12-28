@@ -57,7 +57,7 @@ const ToDoItem = ({ item, updateSelected, deleteSelected }) => {
 
     if (!item || !item.title) return <div />
 
-    console.log('render item', item.title)
+    // console.log('render item')
     return (
         <div style={{ width: '100%', height: '100%', padding: '20px' }}>
             <BlueDeleteIconBtn aria-label="delete" className={classes.iconButon} onClick={handleDelete}>

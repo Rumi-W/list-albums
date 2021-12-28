@@ -13,7 +13,7 @@ const App = () => {
             <CssBaseline />
             <Routes>
                 <Route exact path="/" element={<Albums />} />
-                <Route path="myalbums" element={<FavoriteAlbums />} />
+                <Route path="favorites" element={<FavoriteAlbums />} />
                 <Route path="to-do" element={<ToDoList />} />
             </Routes>
         </div>

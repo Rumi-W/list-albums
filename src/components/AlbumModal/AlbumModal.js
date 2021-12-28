@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AlbumModal = ({
     handleClickFavorite,
-    toggleModal,
+    closeModal,
     openModal,
     id,
     image,
@@ -76,15 +76,13 @@ const AlbumModal = ({
     const classes = useStyles()
 
     const handleClickHeartIcon = (e) => {
-        console.log('here')
         e.stopPropagation()
         e.preventDefault()
         handleClickFavorite()
     }
 
-    console.log('sel', selected)
     return (
-        <ModalDialog open={openModal} toggleModal={toggleModal}>
+        <ModalDialog open={openModal} closeModal={closeModal}>
             <Card className={classes.cardWrap}>
                 <CardMedia
                     className={classes.media}

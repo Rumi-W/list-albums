@@ -18,15 +18,16 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         marginTop: theme.spacing(2),
-        borderColor: 'red',
-        color: 'red',
+        borderColor: 'rgb(216, 155, 24)',
+        color: 'rgb(241, 140, 8)',
+        margin: theme.spacing(0, 0.5),
         '&:hover': {
-            backgroundColor: 'rgba(255, 0, 0, 0.1)'
+            backgroundColor: 'rgba(241, 140, 8, 0.1)'
         }
     }
 }))
 
-const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrder }) => {
+const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrder, children }) => {
     const [layout, setLayout] = useState([])
     const [currentBreakpoint, setBreakpoint] = useState(null)
     const [windowWidth, setWindowWidth] = useState(1200)
@@ -38,7 +39,6 @@ const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrd
     }, [])
 
     const makeLayout = useCallback(() => {
-        console.log('****set layout')
         if (albumItems.length === 0) {
             saveFavoriteCardsInOrder([])
         }
@@ -96,9 +96,10 @@ const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrd
     }, [getWindowWidth])
 
     useEffect(() => {
-        console.log('data change')
-        makeLayout()
-    }, [makeLayout])
+        if (albumItems && albumItems.length) {
+            makeLayout()
+        }
+    }, [makeLayout, albumItems])
 
     useEffect(() => {
         const handleResize = () => {
@@ -107,28 +108,23 @@ const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrd
         }
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
-    }, [getWindowWidth, windowWidth, makeLayout])
+    }, [getWindowWidth, windowWidth])
 
     const handleBreakpointChange = (breakpoint) => {
         if (breakpoint !== currentBreakpoint) {
-            console.log('breakpoint chnaged')
             setBreakpoint(breakpoint)
         }
     }
 
     const handleLayoutChange = (currentLayout, allLayout) => {
-        console.log('layout changed')
         setLayout([...currentLayout])
     }
 
     const handleSaveLayout = () => {
-        console.log('layout', layout)
-        console.log('save', layout)
         const col = 3
         let favoritesInSavedOrder = []
 
         const yMax = Math.max(...layout.map((item) => item.y))
-        console.log('yMax', yMax)
 
         for (let i = 0; i <= yMax; i++) {
             favoritesInSavedOrder = [
@@ -146,16 +142,17 @@ const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrd
 
     if (!albumItems.length || !layout || !layout.length) return null
 
-    console.log('*** render responsive grids')
+    //console.log('*** render responsive grids')
     return (
         <Fragment>
             <div className={classes.buttonWrap}>
+                {children}
                 <Button
                     size="small"
                     classes={{ outlined: classes.button }}
                     onClick={handleSaveLayout}
                     variant="outlined">
-                    Save Order
+                    Save Card Order
                 </Button>
             </div>
             <ResponsiveGridLayout
@@ -174,7 +171,7 @@ const ResponsiveGrid = ({ albumItems, savedFavoriteCards, saveFavoriteCardsInOrd
                 onLayoutChange={handleLayoutChange}>
                 {albumItems.map((item, i) => (
                     <div className="contents" key={item.id}>
-                        <Album item={item} height={layout[i].h} beakpoint={currentBreakpoint} />
+                        <Album item={item} height={layout[i].h} breakpoint={currentBreakpoint} />
                     </div>
                 ))}
             </ResponsiveGridLayout>
