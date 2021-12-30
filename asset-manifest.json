@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/list-albums/static/css/main.10832a8f.chunk.css",
+    "main.css": "/list-albums/static/css/main.e19500fb.chunk.css",
     "main.js": "/list-albums/static/js/main.5682c3ff.chunk.js",
     "main.js.map": "/list-albums/static/js/main.5682c3ff.chunk.js.map",
     "runtime-main.js": "/list-albums/static/js/runtime-main.6ca91a84.js",
@@ -12,14 +12,14 @@
     "static/js/3.a01d3cb8.chunk.js.map": "/list-albums/static/js/3.a01d3cb8.chunk.js.map",
     "index.html": "/list-albums/index.html",
     "static/css/2.a72322c1.chunk.css.map": "/list-albums/static/css/2.a72322c1.chunk.css.map",
-    "static/css/main.10832a8f.chunk.css.map": "/list-albums/static/css/main.10832a8f.chunk.css.map",
+    "static/css/main.e19500fb.chunk.css.map": "/list-albums/static/css/main.e19500fb.chunk.css.map",
     "static/js/2.f0cb3577.chunk.js.LICENSE.txt": "/list-albums/static/js/2.f0cb3577.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6ca91a84.js",
     "static/css/2.a72322c1.chunk.css",
     "static/js/2.f0cb3577.chunk.js",
-    "static/css/main.10832a8f.chunk.css",
+    "static/css/main.e19500fb.chunk.css",
     "static/js/main.5682c3ff.chunk.js"
   ]
 }
