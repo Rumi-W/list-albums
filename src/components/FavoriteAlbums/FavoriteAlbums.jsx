@@ -132,7 +132,7 @@ const FavoriteAlbums = ({ favoriteAlbums, replaceFavoriteAlbums }) => {
                         <ResponsiveGrid albumItems={favorites}>{toggleDisplayButton}</ResponsiveGrid>
                     </div>
                 ) : (
-                    <Grid container spacing={4} className="albums-wrap">
+                    <Grid container spacing={4} className="albums-wrap-favorites">
                         <div className={classes.buttonWrap}>
                             {toggleDisplayButton}
                             <Button
