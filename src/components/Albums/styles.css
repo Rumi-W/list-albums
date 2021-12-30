@@ -21,7 +21,7 @@
     width: 100%;
     justify-content: center;
     height: 100%;
-    /* padding: 20px 20px; */
+    padding-top: 10px;
 }
 
 .album-cards-wrap {
@@ -36,6 +36,16 @@
 }
 
 .albums-list {
+    height: 75vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1px #e5e5e5 solid;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.albums-list-favorites {
+    padding: 10px;
     height: 75vh;
     overflow-y: hidden;
     overflow-x: hidden;

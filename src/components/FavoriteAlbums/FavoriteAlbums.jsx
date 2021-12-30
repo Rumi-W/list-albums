@@ -144,7 +144,7 @@ const FavoriteAlbums = ({ favoriteAlbums, replaceFavoriteAlbums }) => {
                             </Button>
                         </div>
                         <div className="albums-wrap">
-                            <Grid item xs={12} sm={10} md={8} lg={6} className="albums-list">
+                            <Grid item xs={12} sm={10} md={8} lg={6} className="albums-list-favorites">
                                 <DragDropContext onDragEnd={onDragEnd}>
                                     <Droppable droppableId="list">
                                         {(provided) => (
