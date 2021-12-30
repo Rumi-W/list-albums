@@ -143,7 +143,7 @@ const Albums = ({ albumItems, fetchAlbums, filterAlbums, isAlbumsPending, isAlbu
     }
 
     const mainContent = (
-        <div className="fade-in">
+        <div>
             <Grid container justifyContent="center" classes={{ root: classes.root }}>
                 <Grid item xs={12}>
                     <div className="page-top-link">
@@ -184,7 +184,7 @@ const Albums = ({ albumItems, fetchAlbums, filterAlbums, isAlbumsPending, isAlbu
                 </Grid>
             </Grid>
 
-            <Grid container spacing={4} className="albums-wrap">
+            <Grid container spacing={2} className="albums-wrap">
                 {(!albumItems || !albumItems.length) && (
                     <Grid item xs={12} sm={10} md={8} lg={6} className="albums-list">
                         <Typography variant="h6" align="center">
